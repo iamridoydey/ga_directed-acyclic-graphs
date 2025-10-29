@@ -1,0 +1,36 @@
+name: directed-acyclic-graph
+on:
+  push:
+    branches: 
+      - "main/*"
+jobs:
+  job-1:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "-----Starting job 1-----"
+      - run: echo "Hello, World from job 1"
+      - run: echo "-----Finished job 1-----"
+  job-2:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "-----Starting job 2-----"
+      - run: echo "Hello, World from job 2"
+      - run: echo "-----Finished job 2-----"
+  job-3:
+    runs-on: ubuntu-24.04
+    needs:
+      - job-1
+      - job-2
+    steps:
+      - run: echo "-----Starting job 3-----"
+      - run: echo "Hello, World from job 3"
+      - run: echo "-----Finished job 3-----"
+  job-4:
+    runs-on: ubuntu-24.04
+    needs:
+      - job-2
+      - job-3
+    steps:
+      - run: echo "-----Starting job 4-----"
+      - run: echo "Hello, World from job 4"
+      - run: echo "-----Finished job 4-----"
