@@ -2,7 +2,7 @@ name: directed-acyclic-graph
 on:
   push:
     branches: 
-      - "main/*"
+      - "main"
 jobs:
   job-1:
     runs-on: ubuntu-24.04
